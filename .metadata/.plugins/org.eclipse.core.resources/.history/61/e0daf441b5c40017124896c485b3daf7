@@ -1,0 +1,25 @@
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+public class Parser2 {
+	
+	//Definimos la url de la página web cuyo contenido queremnos parsear
+	public static final String url = "https://www.pccomponentes.com";
+
+	public static void main(String[] args) {
+		
+        Document document = Jsoup.parse(url, "3000");
+
+        Elements entradas = document.getElementsByAttribute("data-name");
+        
+       // System.out.println(document.title());
+        
+        }
+        
+		
+
+
+	}
+

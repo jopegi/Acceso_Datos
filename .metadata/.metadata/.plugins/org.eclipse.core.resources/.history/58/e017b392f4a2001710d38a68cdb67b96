@@ -1,0 +1,136 @@
+package model;
+
+import java.io.BufferedReader;
+//import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class GestionDatos {
+
+	//Cosntructor de la clase
+	public GestionDatos() {
+
+	}
+
+	public BufferedReader abrirFicheros (String fichero) throws FileNotFoundException, IOException{
+		//Se lanzan dos excepciones de tipo IOException (comprobadas) que obligan a un try/catch
+		//TODO: Implementa una función para abrir ficheros
+		
+		//Cargamos el fichero de texto en un objeto FileReader
+		FileReader fr = new FileReader(fichero);
+		
+		//Para poder leer líneas y, no solo carácteres, le pasamos el FileReader a un BufferedReader
+		BufferedReader br = new BufferedReader(fr);
+		
+		//El método retorna el propio objeto BufferedReader
+		return br;
+	}
+	
+	public void cerrarFicheros (String fichero) throws FileNotFoundException, IOException{
+		//Se lanzan dos excepciones de tipo IOException (comprobadas) que obligan a un try/catch
+		//TODO: Implementa una función para cerrar ficheros
+		
+		//Cargamos el fichero de texto en un objeto FileReader
+		//Juanmi: ¿Para cerrar un fichero? ¿No sería mejor pasar al método, por parámetro, un objeto de tipo FileReader?
+		//Evitando así, tener que abrir el fichero en el método para, posteriormente, poder cerrarlo?
+		FileReader fr = new FileReader(fichero);
+		
+		//Cerramos el fichero
+		fr.close();
+	}
+	
+	
+	
+	public boolean compararContenido(String fichero1, String fichero2) throws FileNotFoundException, IOException {
+		//Se lanzan dos excepciones de tipo IOException (comprobadas) que obligan a un try/catch
+		// TODO: Implementa la función
+
+		//En un objeto de tipo BufferedReader y mediante la llamada al método abrirFicheros,
+		//se almacena el contenido del primer fichero que se pasa como parámetro
+		BufferedReader br1 = this.abrirFicheros(fichero1);
+		
+		//En un objeto de tipo BufferedReader y mediante la llamada al método abrirFicheros,
+		//se almacena el contenido del segundo fichero que se pasa como parámetro
+		BufferedReader br2 = this.abrirFicheros(fichero2);
+
+		//Para que pueda ejecutarse el método While, en una primera instancia, se guarda en las variables
+		//cadena 1 y cadena2 el contenido de la primera línea de los ficheros 1 y 2
+		String cadena1 = br1.readLine();
+		String cadena2 = br2.readLine();
+
+		//Con el bucle While se va comparando, línea a línea, el contenido de los dos ficheros
+		while (cadena1 != null && cadena2 != null) {
+
+			//En el momento en que el contenido de una línea de un fichero 
+			//no sea igual al contenido de la línea del otro fichero (considerando ambas siempre en la misma posición),
+			//Los ficheros ya no serán iguales y, por lo tanto, el método retornará falso.
+			if (cadena1.equals(cadena2)==false) {
+				
+				//Cerramos los ficheros
+				br1.close();
+				br2.close();
+				
+				return false;				
+			}
+			
+			cadena1 = br1.readLine();
+			cadena2 = br2.readLine();
+
+		}
+
+		System.out.println("El contenido del archivo de texto " + fichero1 + " es igual a " + fichero2);
+		
+		//Si se sale del bucle y se llega a este punto, significará que se ha comprobado que los ficheros no son distintos
+		//y, por lo tanto, el método retornará verdadero
+		
+		//Cerramos los ficheros
+		br1.close();
+		br2.close();
+		
+		return true;
+	}
+
+	public int buscarPalabra(String fichero1, String palabra, boolean primera_aparicion)
+			throws FileNotFoundException, IOException {
+		//Se lanzan dos excepciones de tipo IOException (comprobadas) que obligan a un try/catch
+		
+		int contador = 0;
+		int linea_encontrada=-1;
+		BufferedReader br = this.abrirFicheros(fichero1);
+		String linea = "";
+
+		// Lectura del fichero
+		while (linea != null) {
+
+			linea = br.readLine();
+			contador += 1;
+
+			if (linea.equals(palabra) && primera_aparicion == true) {
+				
+				linea_encontrada = contador;
+				br.close();
+				return linea_encontrada;
+			}
+			if (linea.equals(palabra) && primera_aparicion == false) {
+				linea_encontrada = contador;
+				//return linea_encontrada;
+
+			} 
+		}
+		
+		br.close();
+		return linea_encontrada;
+
+	}
+	
+	public void cerrarBufferedReader(BufferedReader br) {
+		try {
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

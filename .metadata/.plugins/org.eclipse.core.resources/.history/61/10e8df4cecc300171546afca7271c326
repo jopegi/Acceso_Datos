@@ -1,0 +1,93 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Ventana extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField cajaParsear;
+	private JButton botonParsear;
+	private JLabel labelParsear;
+
+	/**
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Ventana frame = new Ventana();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	 **/
+
+	//Constructor de la ventana
+	public Ventana() {
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 820, 443);
+		contentPane = new JPanel();
+		contentPane.setForeground(Color.BLACK);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		
+		//Botón Parsear
+		botonParsear = new JButton("Parsear fichero");
+		botonParsear.setFont(new Font("Tahoma", Font.BOLD, 13));
+		botonParsear.setForeground(Color.RED);
+		botonParsear.setBounds(12, 98, 198, 25);
+		contentPane.add(botonParsear);
+		
+		//ActionListener botón Parsear
+		botonParsear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		
+		labelParsear = new JLabel("Fichero:");
+		labelParsear.setBounds(12, 13, 56, 16);
+		contentPane.add(labelParsear);
+		
+		cajaParsear = new JTextField();
+		cajaParsear.setBounds(12, 42, 198, 22);
+		contentPane.add(cajaParsear);
+		cajaParsear.setColumns(10);
+	}
+
+	//Métodos setter & getter
+	
+	public JTextField getCajaParsear() {
+		return cajaParsear;
+	}
+
+	public void setCajaParsear(JTextField cajaParsear) {
+		this.cajaParsear = cajaParsear;
+	}
+
+	public JButton getBotonParsear() {
+		return botonParsear;
+	}
+
+	public void setBotonParsear(JButton botonParsear) {
+		this.botonParsear = botonParsear;
+	}
+	
+	
+}

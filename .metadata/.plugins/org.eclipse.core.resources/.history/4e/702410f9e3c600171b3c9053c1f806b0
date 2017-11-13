@@ -1,0 +1,32 @@
+
+public class Ejercicio3 implements Runnable {
+
+	private String nombreHilo;
+
+	public Ejercicio3(String nombreHilo) {
+
+		this.nombreHilo = nombreHilo;
+
+		new Thread(this, nombreHilo).start();
+
+	}
+
+	@Override
+	public void run() {
+
+		for (int i = 0; i < 5; i++) {
+			System.out.println("Hola, soy el hilo: " + nombreHilo);
+		}
+
+	}
+
+	public static void main(String[] args) {
+
+		new Ejercicio3("rana");
+		new Ejercicio3("hombre");
+		new Ejercicio3("perro");
+		new Ejercicio3("caballo");
+		new Ejercicio3("galgo");
+	}
+
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libros>
+
+	<libro>
+	
+		<id>1</id>
+		<titulo>La Guerra de las Galaxias</titulo>
+		<autor>Pepe Pérez</autor>
+		<anyo_publicacion>1900</anyo_publicacion>
+		<editor>Anaya</editor>
+		<num_paginas>500</num_paginas>
+		
+	</libro>
+	
+	<libro>
+		
+		<id>2</id>
+		<titulo>El Hobbit</titulo>
+		<autor>Tolkien</autor>
+		<anyo_publicacion>1800</anyo_publicacion>
+		<editor>Espasa</editor>
+		<num_paginas>600</num_paginas>
+		
+	</libro>
+		
+	<libro>
+		
+		<id>3</id>
+		<titulo>El Señor de los Anillos</titulo>
+		<autor>Tolkien</autor>
+		<anyo_publicacion>1820</anyo_publicacion>
+		<editor>Espasa</editor>
+		<num_paginas>900</num_paginas>
+		
+	</libro>
+
+</libros>

@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class Marshaller {
+	
+	private Document dom = null;
+	private ArrayList<Libro> libros = null;
+	
+	//El constructor de la clase Marshaller recibirá como parámetro un ArrayList 
+	//que contendrá los objetos libro a serializar
+	public Marshaller (ArrayList<Libro> lib) {
+		
+		libros = lib;
+		
+	}
+	
+	//Métodos de la clase Marhaller
+	
+	public void crearDocumento() throws ParserConfigurationException {
+		//Creamos una Factory
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+		//Creamos un DocumentBuilder
+		DocumentBuilder db = dbf.newDocumentBuilder();
+		//Creamos un Document
+		dom = db.newDocument();
+	}
+	
+	public void crearArbolDOM() {
+		//Creamos el elemento raíz libros
+		Element docEl = dom.createElement("libros");
+		//Añadimos el elemento raíz al Document
+		dom.appendChild(docEl);
+		
+		//Recorremosel ArrayList libros en el que se ha guardado el objeto libro según los datos del usuario
+		Iterator<E> it = libros.iterator();
+		
+		while(it.hasNext()) {
+			Libro l = (Libro) it.next();
+			//Para cada objeto libro creamos una etiqueta <libro> y la añadimos al Document
+			Element libroEle = setLibro(l);
+			docEl.appendChild(libroEle);
+		}
+		
+	}
+	
+	private Element setLibro(Libro l) {
+		return null;
+		
+	}
+
+}

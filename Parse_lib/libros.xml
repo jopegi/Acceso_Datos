@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libros>
+<libro>
+<id>5</id>
+<titulo>Hola</titulo>
+<autor>Pepe</autor>
+<anyo>2001</anyo>
+<editor>Anaya</editor>
+<paginas>50</paginas>
+</libro>
+</libros>

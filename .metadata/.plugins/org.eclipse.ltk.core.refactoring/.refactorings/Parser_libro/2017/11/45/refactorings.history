@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;libros.xml&apos; to &apos;Parse_lib&apos;&#x0D;&#x0A;- Original project: &apos;Parser_libro&apos;&#x0D;&#x0A;- Destination element: &apos;Parse_lib&apos;&#x0D;&#x0A;- Original element: &apos;libros.xml&apos;" description="Copy file" destination="=Parse_lib" element1="libros.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1510077858925" units="0" version="1.0"/>
+</session>

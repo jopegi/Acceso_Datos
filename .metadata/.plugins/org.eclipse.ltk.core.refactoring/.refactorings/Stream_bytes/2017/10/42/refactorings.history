@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;lena.jpg&apos; to &apos;ProyectoBuffers/src&apos;&#x0D;&#x0A;- Original project: &apos;Stream_bytes&apos;&#x0D;&#x0A;- Destination element: &apos;ProyectoBuffers/src&apos;&#x0D;&#x0A;- Original element: &apos;lena.jpg&apos;" description="Copy file" destination="=ProyectoBuffers/src" element1="src/lena.jpg" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1508431948132" units="0" version="1.0"/>
+</session>

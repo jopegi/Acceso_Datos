@@ -1,0 +1,18 @@
+import java.util.ArrayList;
+
+import org.w3c.dom.Document;
+
+public class Marshaller {
+	
+	private Document dom = null;
+	private ArrayList<Libro> libros = null;
+	
+	//El constructor de la clase Marshaller recibirá como parámetro un ArrayList 
+	//que contendrá los objetos libro a serializar
+	public Marshaller (ArrayList<Libro> lib) {
+		
+		libros = lib;
+		
+	}
+
+}
