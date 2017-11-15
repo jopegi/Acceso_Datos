@@ -41,7 +41,7 @@ public class Parser {
 	}
 
 	public void parseDocument() {
-		// obtenemos el elemento raíz
+		// obtenemos el elemento raíz <biblioteca>
 		Element docEle = dom.getDocumentElement();
 
 		// obtenemos el nodelist de elementos
