@@ -24,6 +24,7 @@ public class GestionFicherosImpl implements GestionFicheros {
 		actualiza();
 	}
 
+	//Método que actualiza el contenido del directorio mostrado en la interfaz gráfica
 	private void actualiza() {
 
 		String[] ficheros = carpetaDeTrabajo.list(); // obtener los nombres
@@ -49,10 +50,14 @@ public class GestionFicherosImpl implements GestionFicheros {
 		}
 	}
 
+	//Método para acceder al directorio superior al que estamos situados 
 	@Override
 	public void arriba() {
 
-		System.out.println("holaaa");
+		//System.out.println("holaaa");
+		
+		//Hay que controlar que se actualice la carpeta de trabajo a un directorio anterior 
+		//siempre y cuando ese supuesto directorio padre exista
 		if (carpetaDeTrabajo.getParentFile() != null) {
 			carpetaDeTrabajo = carpetaDeTrabajo.getParentFile();
 			actualiza();
@@ -134,8 +139,12 @@ public class GestionFicherosImpl implements GestionFicheros {
 
 	}
 
+	//Método para poder cambiar de carpeta de trabajo
 	@Override
 	public void entraA(String arg0) throws GestionFicherosException {
+		
+		//Necesitamos construir una nueva ruta a partir del string que recibe el método como parámetro
+		//Dicha ruta se corresponderá con el directorio al que pretendemos acceder. 
 		File file = new File(carpetaDeTrabajo, arg0);
 		// se controla que el nombre corresponda a una carpeta existente
 		if (!file.isDirectory()) {
@@ -195,7 +204,9 @@ public class GestionFicherosImpl implements GestionFicheros {
 	@Override
 	public String getInformacion(String arg0) throws GestionFicherosException {
 		
+		//Para concatenar cadenas de texto hacemos uso de la Clase StringBuilder y su método append()
 		StringBuilder strBuilder=new StringBuilder();
+		
 		File file = new File(carpetaDeTrabajo,arg0);
 		
 
@@ -393,6 +404,7 @@ public class GestionFicherosImpl implements GestionFicheros {
 
 	}
 
+	//Método encargado de indicar una nueva carpeta de trabajo a que acceder
 	@Override
 	public void setDirCarpeta(String arg0) throws GestionFicherosException {
 		File file = new File(arg0);

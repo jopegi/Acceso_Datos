@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Font;
 
 public class LaunchView extends JFrame {
 
@@ -13,8 +14,8 @@ public class LaunchView extends JFrame {
 	private JTextArea textArea;
 	private JTextField fichero1,fichero2,palabra,fichero3,fichero4,fichero5,fichero6,fichero7,fichero8,fichero9,fichero10,fichero11,fichero12,fichero13,
 	fichero14,fichero15,fichero16,fichero17,fichero18, fichero19,fichero20;
-	private JLabel label_f1,label_f2,lbl_f3,lbl_f4,lbl_f5,lbl_f6,lbl_f7,lbl_f8,lbl_f9,lbl_f10,lbl_f11,lbl_f12,lbl_f13,lbl_f14,lbl_f15,lbl_f16,lbl_f17,lbl_f18,
-	lbl_f21,lbl_f22;
+	private JLabel label_f1,lblLongitud,lbl_f3,lbl_f4,lbl_f5,lbl_f6,lbl_f7,lbl_f8,lbl_f9,lbl_f10,lbl_f11,lbl_f12,lbl_f13,lbl_f14,lbl_f15,lbl_f16,lbl_f17,lbl_f18,
+	lbl_f21,lbl_f22, mostrarCoincidencias;
 	private JCheckBox primera;
 	private JRadioButton RBOrden;
 	private JPanel panel;
@@ -28,7 +29,7 @@ public class LaunchView extends JFrame {
 		
 		RBOrden=new JRadioButton("Orden Ascendente",true);
 		RBOrden.setBounds(8, 218, 133, 25);
-		comparar = new JButton("Comparar contenido");
+		comparar = new JButton("Palabra + larga");
 		comparar.setBounds(12, 80, 150, 26);
 		comparar.setPreferredSize(new Dimension(150, 26));
 		buscar = new JButton("Buscar palabra");
@@ -47,8 +48,8 @@ public class LaunchView extends JFrame {
 		
 		label_f1 = new JLabel("Fichero 1:");
 		label_f1.setBounds(12, 16, 58, 16);
-		label_f2 = new JLabel("Fichero 2:");
-		label_f2.setBounds(12, 48, 58, 16);
+		lblLongitud = new JLabel("Longitud:");
+		lblLongitud.setBounds(12, 48, 58, 16);
 		lbl_f6 = new JLabel("Palabra:");
 		lbl_f6.setBounds(12, 342, 48, 16);
 		
@@ -65,7 +66,7 @@ public class LaunchView extends JFrame {
 		panel.add(ordenar);
 		panel.add(label_f1);
 		panel.add(fichero1);
-		panel.add(label_f2);
+		panel.add(lblLongitud);
 		panel.add(fichero2);
 		panel.add(lbl_f6);
 		panel.add(palabra);
@@ -255,7 +256,7 @@ public class LaunchView extends JFrame {
         fichero19.setBounds(1046, 45, 143, 22);
         panel.add(fichero19);
         
-        lbl_f22 = new JLabel("Palabras a mostrar:");
+        lbl_f22 = new JLabel("Longitud palabra:");
         lbl_f22.setBounds(1046, 71, 143, 16);
         panel.add(lbl_f22);
         
@@ -263,10 +264,16 @@ public class LaunchView extends JFrame {
         fichero20.setBounds(1046, 92, 143, 22);
         panel.add(fichero20);
         
-        mostrar_palabras = new JButton("Mostrar palabras");
+        mostrar_palabras = new JButton("Mostrar coincidencias");
         mostrar_palabras.setPreferredSize(new Dimension(150, 26));
         mostrar_palabras.setBounds(1046, 125, 133, 26);
         panel.add(mostrar_palabras);
+        
+        mostrarCoincidencias = new JLabel("");
+        mostrarCoincidencias.setFont(new Font("Tahoma", Font.BOLD, 14));
+        mostrarCoincidencias.setForeground(Color.RED);
+        mostrarCoincidencias.setBounds(1056, 172, 123, 30);
+        panel.add(mostrarCoincidencias);
 		
 	}	
 	
@@ -612,8 +619,21 @@ public class LaunchView extends JFrame {
 
 	//********************************************
 	
+	public JLabel getMostrarCoincidencias() {
+		return mostrarCoincidencias;
+	}
+
+	public void setMostrarCoincidencias(JLabel mostrarCoincidencias) {
+		this.mostrarCoincidencias = mostrarCoincidencias;
+	}
+	
+	//********************************************
+	
+	
 	public void showError(String m) {
 		JOptionPane.showMessageDialog(this.panel, m, "Error", JOptionPane.ERROR_MESSAGE);
 	}
+
+
 }
 

@@ -162,7 +162,7 @@ public class GestionEventos {
 			}
 		};
 		
-		view.getComparar().addActionListener(actionListener_longitud);
+		//view.getComparar().addActionListener(actionListener_longitud);
 		
 		//*******************************
 		
@@ -229,6 +229,32 @@ public class GestionEventos {
 
 		view.getMostrar_palabras().addActionListener(actionListener_MostrarPalabras);
 		
+		// *******************************
+		
+		// actividad 1 Exámen Evaluación 1 ADD
+
+		ActionListener actionListener_PalabraMasLarga = new ActionListener() {
+			public void actionPerformed(ActionEvent actionEvent) {
+
+				try {
+					
+					call_longitudMaxima();
+					
+				} catch (FileNotFoundException e) {
+					
+					e.printStackTrace();
+					view.showError("Error... Posiblemente el fichero no exista!" );
+					
+				}catch(IOException e) {
+					
+					e.printStackTrace();
+					view.showError("Error... de tipo IOException!" );
+				}
+			}
+		};
+
+		view.getComparar().addActionListener(actionListener_PalabraMasLarga);
+
 		// *******************************
 	}
 
@@ -543,12 +569,36 @@ private int call_modificarAutorLibro() {
 //DEFINIMOS UN MÉTODO QUE LLAMARÁ TRABAJARÁ CON OBJETOS DE LA VISTA Y DEL MODELO
 private int call_mostrarPalabras() {
 	
-		model.mostrarPalabras(view.getFichero19().getText(), Integer.valueOf(view.getFichero20().getText()));
-		//view.getTextArea().setText("El libro se ha modificado con el nombre de autor: " + view.getFichero18().getText());
+		int palabrasCoincidentes = model.mostrarPalabras(view.getFichero19().getText(), Integer.valueOf(view.getFichero20().getText()));
 		
+		//if (palabrasCoincidentes == Integer.valueOf(view.getFichero20().getText())){
+		if (palabrasCoincidentes == 0){
+			
+			view.getTextArea().setText("En el fichero indicado no existe ninguna palabra con la longitud indicada");
+			
+			view.showError("No hay palabras coincidentes!!");
+		}else {
+			
+			view.getMostrarCoincidencias().setText(String.valueOf(palabrasCoincidentes));
+			
+			view.getTextArea().setText("");
+			
+		}
+		
+
 	return 1;
 }
 
+//Actividad 1 exámen evaluación 1 ADD
+private int call_longitudMaxima() throws IOException {
+	
+	String palabraMasLarga = model.palabraMasLarga(view.getFichero1().getText());
+		
+		view.getTextArea().setText("La palabra más larga es: " +palabraMasLarga);
+		view.getFichero2().setText(palabraMasLarga);
+
+return 1;
+}
 
 	
 }

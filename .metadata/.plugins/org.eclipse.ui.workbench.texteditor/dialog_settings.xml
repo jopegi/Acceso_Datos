@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="getN" key="selection"/>
+		<item value="mostrarPalabras" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="loat"/>
+			<item value="mostrarPalabras"/>
+			<item value="mos"/>
+			<item value="creaCarpeta"/>
+			<item value="getInformacion"/>
+			<item value="arr"/>
+			<item value="entraA"/>
+			<item value="setDir"/>
+			<item value="setd"/>
+			<item value="print"/>
+			<item value="print()"/>
 			<item value="getN"/>
 			<item value="getA"/>
 			<item value="call_buscarPalabra()"/>
 			<item value="actionPerformed"/>
-			<item value="lon"/>
-			<item value="call_lo"/>
-			<item value="comparar"/>
-			<item value="ren"/>
-			<item value="crea"/>
-			<item value="id"/>
-			<item value="actualizaId"/>
-			<item value="getid"/>
-			<item value="recuperarIdLi"/>
-			<item value="guardarLib"/>
-			<item value="guardarLibro"/>
 		</list>
 		<list key="replacehistory">
 		</list>

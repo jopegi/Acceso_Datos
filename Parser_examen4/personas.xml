@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<personas>
+	<persona>
+			<pers dni="20333559Q">
+				<nombre>Dani</nombre>
+				<altura>1.80</altura>
+				<edad>27</edad>
+			</pers>
+			<pers dni="20333559Q">
+				<nombre>Armando</nombre>
+				<altura>1.92</altura>
+				<edad>27</edad>
+			</pers>
+			<pers dni="20333559Q"> 
+				<nombre>Pablo</nombre>
+				<altura>2.30</altura>
+				<edad>27</edad>
+			</pers>
+			<pers dni="20333559Q">
+				<nombre>Saul</nombre>
+				<altura>1.92</altura>
+				<edad>27</edad>
+			</pers>
+	</persona>
+	<persona>
+			<pers dni="20333559Q">
+				<nombre>Dani</nombre>
+				<altura>1.80</altura>
+				<edad>27</edad>
+			</pers>
+			<pers dni="20333559Q">
+				<nombre>Armando</nombre>
+				<altura>1.92</altura>
+				<edad>27</edad>
+			</pers>
+			<pers dni="20333559Q">
+				<nombre>Pablo</nombre>
+				<altura>2.30</altura>
+				<edad>27</edad>
+			</pers>
+			<pers dni="20333559Q">
+				<nombre>Saul</nombre>
+				<altura>1.92</altura>
+				<edad>27</edad>
+			</pers>
+	</persona>
+</personas>

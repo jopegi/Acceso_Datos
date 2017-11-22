@@ -65,12 +65,15 @@ public class GestionDatos {
 		fr.close();
 	}
 	
-	//Método para cerrar Streams
+	// Método para cerrar Streams
 	public void cerrarStream(Closeable c) {
-		try {
-			c.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+
+		if (c != null) {
+			try {
+				c.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -714,9 +717,11 @@ public class GestionDatos {
 	//************ACTIVIDAD 2 EXÁMEN****************************************************************************
 	//MÉTODO PARA MOSTRAR UN DETERMINADO NÚMERO DE PALABRAS DE UN FICHERO:	
 	
-	public void mostrarPalabras(String f, int n_palabras) {
+	public int mostrarPalabras(String f, int longitud_palabra) {
 
 		File archivo = null;
+		
+		int contador = 0;
 
 		try {
 			// "archivo.txt" es el archivo que va a leer
@@ -728,26 +733,23 @@ public class GestionDatos {
 
 			BufferedReader br = new BufferedReader(fr);
 			
-			if(archivo.length() <= 0) {
-				
-				System.out.println("El fichero está vacío!");
-				
-			}else {
-
 			while ((linea = br.readLine()) != null) {
-				for (int i = 0; i < n_palabras; i++) {
-					System.out.print(linea.charAt(i));
-				}
+				
+				if (linea.length() == longitud_palabra) {
+					
+					contador = contador+1;
+				}	
 			}
 
 			fr.close();
 			
-			}
 			
 		} catch (IOException e) {
 			
 			System.out.println(e);
 		}
+		
+		return contador;
 
 	}
 	
@@ -787,6 +789,51 @@ public class GestionDatos {
 		System.out.println("Coinciden "+ contador + " palabras conla longitud indicada");
 		
 		return contador;
+		
+	}
+	
+	
+	//Actividad 1 exámen ordinario ADD
+	public String palabraMasLarga (String fichero) throws FileNotFoundException, IOException{
+		
+		//Cargamos el fichero
+		File f = new File (fichero);
+		
+		//Comprobamos si existe. Si no existe capturamos la excepción antes de ser lanzada
+		//Y el programa se interrumpe.
+		if(!f.exists()){
+			
+			throw new FileNotFoundException ("El fichero no existe!");
+			
+		}
+		
+		//Envolvemos el fichero en un BufferedReader
+		BufferedReader br = new BufferedReader (new FileReader(new File(fichero)));
+		
+		String leePalabras;
+		String palabraMasLarga = "";
+		int longitudMax = 0;
+		int longitudPalabra= 0;
+		
+		while((leePalabras=br.readLine())!=null){
+			
+			//longitudMax = longitudPalabra;
+			longitudPalabra = leePalabras.length();
+			
+			if(longitudPalabra > longitudMax){
+				
+				longitudMax = longitudPalabra;
+				
+				System.out.println("Longitud máxima: "+longitudMax);
+				System.out.println("La palabra de mayor longitud es: "+leePalabras);
+				
+				palabraMasLarga = leePalabras;
+				
+			}
+			
+		}
+		
+		return palabraMasLarga;
 		
 	}
 

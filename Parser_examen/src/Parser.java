@@ -16,13 +16,13 @@ public class Parser {
 
 	private Document dom = null;
 	private ArrayList<Accion> acciones;
-	private ArrayList<Operacion> operaciones;
+	private ArrayList<Operacion> operaciones = new ArrayList<Operacion>();
 
 	// Constructor de la clase Parser
 	public Parser() {
 
-		acciones = new ArrayList<Accion>();
-		operaciones = new ArrayList<Operacion>();
+		//acciones = new ArrayList<Accion>();
+		//operaciones = new ArrayList<Operacion>();
 	}
 
 	// Método para obtener la estructura DOM del documento xml
@@ -59,7 +59,7 @@ public class Parser {
 
 				Element elementoAccion = (Element) hijosRaiz.item(i);
 				String atributoNombre = elementoAccion.getAttribute("nombre");
-				System.out.println("Atributo nombre de la etiqueta <accion>: " + atributoNombre);
+				//System.out.println("Atributo nombre de la etiqueta <accion>: " + atributoNombre);
 				Accion accion = new Accion(atributoNombre, operaciones);
 
 				NodeList hijosAccion = elementoAccion.getElementsByTagName("operaciones");
