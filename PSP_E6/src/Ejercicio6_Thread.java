@@ -69,7 +69,7 @@ public class Ejercicio6_Thread extends Thread{
 				e.printStackTrace();
 			}
         	
-        	System.out.println("main terminado!");
+        		System.out.println("main terminado!");    	
         	
     }
 
